@@ -1,0 +1,181 @@
+/* General Styles */
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(236, 208, 236);
+}
+
+/* Navbar */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgb(80, 42, 80) ;
+    padding: 14px 20px;
+}
+.navbar .logo{
+    color: whitesmoke;
+    font-size: 24px;
+    text-decoration: dotted;
+    font-weight: bold;
+}
+.menu{
+    list-style: none ;
+    display: flex;
+    padding: 0;
+}
+.menu li{
+   margin: 0;
+}
+.menu a{
+    color: rgb(206, 178, 189);
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+    font-size: 18px;
+}
+.menu a:hover{
+    background-color: aliceblue;
+    color: rgb(186, 113, 162);
+}
+/* Moblie Menu */
+.menu-icon{
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: blueviolet;
+}
+#menu-toggle{
+    display: none;
+}
+@media(max-width: 768px){
+    .menu{
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: purple;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        text-align: center;
+    }
+    .menu-icon{
+        display: block;
+    }
+    #menu-toggle:checked + .menu{
+        display: flex;
+    }
+}
+.hero{
+    text-align: center;
+    padding: 100px 20px;
+    background: url(ssss.jpeg) no-repeat center center/cover;
+    color: aliceblue;
+    font-size: 24px;
+}
+* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(80, 42, 80);
+    padding: 14px 20px;
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.menu a {
+    color: pink;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+    font-size: 18px;
+}
+
+.menu a:hover {
+    background-color: white;
+    color: palevioletred;
+}
+
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(186, 113, 162);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+/* Button */
+.btn {
+    background-color: rgb(80, 42, 80);
+    color: white;
+    border: none;
+    padding: 12px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: rgb(206, 178, 189);
+}
+
+/* Responsive */
+@media (max-width: 768px){
+    .contact-container {
+        width: 90%;
+    }
+}

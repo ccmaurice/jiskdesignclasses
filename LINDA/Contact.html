@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: url(Snoopy\ desktop\ wallpaper.jpeg) no-repeat center/cover;
+            color: #82383B;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center; 
+        }
+        .container {
+            max-width: 700px;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #82383B;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+        .contact-info {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+        .contact-info a {
+            color:  #E9D4C1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: #82383B;
+        }
+        .nav {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+        .nav a {
+            color: #E9D4C1;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        .nav a:hover,
+        .nav a:active{
+            color: #954130;
+            border-bottom: 2px solid #954130;
+
+        }
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+
+.btn {
+    background-color: palevioletred;
+    color: white;
+    border: none;
+    padding: 12px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: deeppink;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        width: 90%;
+    }
+}
+
+        .footer {
+            margin-top: 30px;
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="Aboutme.html">About Me</a>
+        <a href="Gallery.html">Gallery</a>
+    </div>
+    <div class="container">
+        <h1>Contact Me!!</h1>
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:hannahkyms@gmail.com">lindsaymonga29@gmail.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+243 897 971 012">+243 897 971 012 </a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/Lin_med45" target="_blank">Lin_med45</a></p>
+            <p><strong>Instagram:</strong> <a href="https://www.instagram.com/Lin_med90" target="_blank">Lin_med90</a></p>
+        </div>
+            <form class="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
+
+        <p class="footer">&copy; 2025 Linda Monga</p>
+    </div>
+</body>
+</html>
