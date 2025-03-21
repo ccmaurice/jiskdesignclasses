@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questioning Page</title>
+    <link rel="stylesheet" href="about-you.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="question">
+            <h2>Date of Birth Year?</h2>
+            <div class="carousel">
+                <button class="scroll-btn" onclick="changeYear(-1)">‹</button>
+                <div class="year-display">
+                    <span id="selectedYear">2000</span>
+                </div>
+                <button class="scroll-btn" onclick="changeYear(1)">›</button>
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>What's your height?</h2>
+            <div class="toggle">
+                <button id="cmBtn" class="active" onclick="setHeightUnit('cm')">Cm</button>
+                <button id="ftBtn" onclick="setHeightUnit('ft')">Ft</button>
+            </div>
+            <div class="height-slider">
+                <input type="range" id="heightSlider" min="50" max="250" value="170" oninput="updateHeight()">
+                <span id="heightValue">170 cm</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>Your current weight?</h2>
+            <div class="toggle">
+                <button id="kgBtn" class="active" onclick="setWeightUnit('kg')">Kg</button>
+                <button id="lbsBtn" onclick="setWeightUnit('lbs')">Lbs</button>
+            </div>
+            <div class="weight-slider">
+                <input type="range" id="weightSlider" min="30" max="200" value="75" oninput="updateWeight()">
+                <span id="weightValue">75 kg</span>
+            </div>
+        </div>
+
+        <button id="nextBtn" class="next-btn" disabled onclick="goToNextPage()">Next</button>
+    </div>
+
+    <form id="hiddenForm" style="display:none;">
+        <input type="hidden" id="dobYearInput" name="dobYear">
+        <input type="hidden" id="heightInput" name="height">
+        <input type="hidden" id="weightInput" name="weight">
+    </form>
+
+<script>
+    // Year Selector
+let currentYearIndex = 15; // Default to year 2000 (index 15 in array)
+const years = Array.from({ length: 37 }, (_, i) => 1985 + i);
+const yearDisplay = document.getElementById('selectedYear');
+let yearSelected = false;
+
+function changeYear(direction) {
+    currentYearIndex += direction;
+    if (currentYearIndex < 0) currentYearIndex = 0;
+    if (currentYearIndex > years.length - 1) currentYearIndex = years.length - 1;
+    yearDisplay.textContent = years[currentYearIndex];
+    yearSelected = true;
+    checkFormCompletion();
+    document.getElementById("dobYearInput").value = years[currentYearIndex]; // Store DOB year in hidden form
+}
+
+// Height Unit Toggle
+let heightUnit = 'cm';
+let heightSelected = true; // Default height is set
+
+function setHeightUnit(unit) {
+    heightUnit = unit;
+    document.getElementById('cmBtn').classList.toggle('active', unit === 'cm');
+    document.getElementById('ftBtn').classList.toggle('active', unit === 'ft');
+    updateHeight();
+}
+
+// Update Height Display
+function updateHeight() {
+    let height = document.getElementById('heightSlider').value;
+    let displayHeight = heightUnit === 'cm' ? `${height} cm` : `${Math.floor(height / 30.48)} ft ${Math.round((height % 30.48) / 2.54)} in`;
+    document.getElementById('heightValue').textContent = displayHeight;
+    heightSelected = true;
+    checkFormCompletion();
+    document.getElementById("heightInput").value = height; // Store height in hidden form
+}
+
+// Weight Unit Toggle
+let weightUnit = 'kg';
+let weightSelected = true; // Default weight is set
+
+function setWeightUnit(unit) {
+    weightUnit = unit;
+    document.getElementById('kgBtn').classList.toggle('active', unit === 'kg');
+    document.getElementById('lbsBtn').classList.toggle('active', unit === 'lbs');
+    updateWeight();
+}
+
+// Update Weight Display
+function updateWeight() {
+    let weight = document.getElementById('weightSlider').value;
+    let displayWeight = weightUnit === 'kg' ? `${weight} kg` : `${Math.round(weight * 2.205)} lbs`;
+    document.getElementById('weightValue').textContent = displayWeight;
+    weightSelected = true;
+    checkFormCompletion();
+    document.getElementById("weightInput").value = weight; // Store weight in hidden form
+}
+
+// Enable "Next" Button When All Inputs Are Selected
+function checkFormCompletion() {
+    let nextBtn = document.getElementById('nextBtn');
+    if (yearSelected && heightSelected && weightSelected) {
+        nextBtn.classList.add('active');
+        nextBtn.disabled = false;
+    } else {
+        nextBtn.classList.remove('active');
+        nextBtn.disabled = true;
+    }
+}
+
+// Go To Next Page
+function goToNextPage() {
+    if (yearSelected && heightSelected && weightSelected) {
+        window.location.href = "final-plan.html";
+    }
+}
+
+</script>   
+    
+
+</body>
+</html>

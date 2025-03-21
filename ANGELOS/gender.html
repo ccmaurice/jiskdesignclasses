@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Gender</title>
+    <link rel="stylesheet" href="gender.css">
+</head>
+<body>
+    <div class="container">
+        <h1>What is your gender?</h1>
+        <div class="gender-options">
+            <div class="gender-card" id="male" onclick="selectGender('male')">
+                <img src="04DF0652-26B0-4662-8162-48B28F8F1201_4_5005_c.jpeg" alt="Male">
+                <p>Male</p>
+            </div>
+            <div class="gender-card" id="female" onclick="selectGender('female')">
+                <img src="AEE3F2FE-3206-4371-B60C-1BFB37CA813D_4_5005_c.jpeg" alt="Female">
+                <p>Female</p>
+            </div>
+        </div>
+        <button class="next-btn" id="nextBtn" onclick="goToNextPage()" disabled>Next</button>
+        <form style="display:none;">
+            <input type="hidden" id="genderInput" name="gender">
+        </form>
+    </div>
+    <script>
+        let selectedGender = null;
+
+        function selectGender(gender) {
+            selectedGender = gender;
+            document.getElementById("genderInput").value = gender; // Store gender in hidden form
+
+            // Remove active class from both
+            document.getElementById("male").classList.remove("selected");
+            document.getElementById("female").classList.remove("selected");
+
+            // Add active class to the selected gender
+            document.getElementById(gender).classList.add("selected");
+
+            // Enable the Next button
+            document.getElementById("nextBtn").disabled = false;
+        }
+
+        function goToNextPage() {
+            const button = document.getElementById("nextBtn");
+            button.classList.add("clicked");
+            setTimeout(() => {
+                window.location.href = "body-selection.html"; // Change this to your next page
+            }, 500);
+        }
+    </script>
+</body>
+</html>

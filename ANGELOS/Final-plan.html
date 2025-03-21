@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Exercise Difficulty</title>
+    <link rel="stylesheet" href="final-plan.css">
+</head>
+<body>
+    <div class="container">
+        <h1>How would you rate your exercise difficulty?</h1>
+
+        <!-- Difficulty Options -->
+        <div class="options">
+            <button class="difficulty-btn" id="basic" onclick="selectDifficulty('basic')">
+                <span class="difficulty-title">Basic</span>
+                <p>Light workouts, perfect for beginners.</p>
+            </button>
+
+            <button class="difficulty-btn" id="medium" onclick="selectDifficulty('medium')">
+                <span class="difficulty-title">Medium</span>
+                <p>A bit heavier workouts for improvement.</p>
+            </button>
+
+            <button class="difficulty-btn" id="advanced" onclick="selectDifficulty('advanced')">
+                <span class="difficulty-title">Advanced</span>
+                <p>Very heavy workouts for experienced users.</p>
+            </button>
+        </div>
+
+        <!-- Next Button (Initially Disabled) -->
+        <button id="nextBtn" class="next-btn" disabled onclick="goToNextPage()">Next</button>
+    </div>
+
+    <form id="userResponses" action="estimation-page.html" method="POST">
+        <input type="hidden" id="difficultyInput" name="difficulty">
+    </form>
+
+    <script>
+         let selectedDifficulty = null;
+
+function selectDifficulty(level) {
+    // Remove active class from all buttons
+    document.querySelectorAll(".difficulty-btn").forEach(btn => {
+        btn.classList.remove("selected");
+    });
+
+    // Add active class to selected button
+    document.getElementById(level).classList.add("selected");
+    selectedDifficulty = level;
+
+    // Store difficulty in hidden form
+    document.getElementById("difficultyInput").value = level; // Store difficulty in hidden form
+
+    // Enable Next button
+    document.getElementById("nextBtn").disabled = false;
+}
+
+function goToNextPage() {
+    if (selectedDifficulty) {
+        alert("You selected: " + selectedDifficulty);
+        document.getElementById("userResponses").submit(); // Submit form to AI
+        window.location.href = "estimation-page.html"; // Navigate to estimation-page.html
+    }
+}
+    </script>
+
+</body>
+</html>

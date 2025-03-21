@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.question {
+    margin-bottom: 30px;
+}
+
+/* Year Selector */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.year-display {
+    width: 80px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.scroll-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Toggle Buttons */
+.toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.toggle button {
+    padding: 8px 20px;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.toggle .active {
+    background: black;
+    color: white;
+}
+
+/* Sliders */
+.height-slider, .weight-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="range"] {
+    width: 80%;
+    margin: 10px 0;
+}
+
+/* Next Button */
+.next-btn {
+    width: 100%;
+    padding: 12px;
+    background: gray;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: not-allowed;
+    margin-top: 20px;
+}
+
+.next-btn.active {
+    background: black;
+    cursor: pointer;
+}
+
+.next-btn.active:hover {
+    background: #333;
+}

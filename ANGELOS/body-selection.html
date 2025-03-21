@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Focus</title>
+    <link rel="stylesheet" href="body-selection.css">
+</head>
+<body>
+    <div class="container">
+        <h1>What part of the body do you want to focus on?</h1>
+        <div class="options">
+            <button class="focus-btn" onclick="selectBodyPart('shoulders')">Shoulders</button>
+            <button class="focus-btn" onclick="selectBodyPart('back')">Back</button>
+            <button class="focus-btn" onclick="selectBodyPart('chest')">Chest</button>
+            <button class="focus-btn" onclick="selectBodyPart('legs')">Butt & Legs</button>
+            <button class="focus-btn" onclick="selectBodyPart('arms')">Arms</button>
+            <button class="focus-btn" onclick="selectBodyPart('core')">Core (Abs)</button>
+            <button class="focus-btn" onclick="selectBodyPart('fullbody')">Full Body</button>
+        </div>
+        
+        <div class="image-container">
+            <img id="body-image" src="default.png" alt="Select a body part">
+        </div>
+
+        <button class="next-btn" id="nextBtn" onclick="goToNextPage()" disabled>Next</button>
+    </div>
+
+    <form style="display:none;">
+        <input type="hidden" id="bodyPartInput" name="bodyPart">
+    </form>
+
+    <script>
+        let selectedPart = null;
+
+        function selectBodyPart(part) {
+            selectedPart = part;
+            document.getElementById("bodyPartInput").value = part; // Store body part in hidden form
+
+            // Update the image
+            document.getElementById("body-image").src = "images/" + part + ".png"; // Example: 2B0675C3-4154-43EF-AB18-70BAFC5803CB.png, back.png
+
+            // Highlight the selected button
+            document.querySelectorAll(".focus-btn").forEach(btn => btn.classList.remove("selected"));
+            document.querySelector(`[onclick="selectBodyPart('${part}')"]`).classList.add("selected");
+
+            // Enable the Next button
+            document.getElementById("nextBtn").disabled = false;
+        }
+
+        function goToNextPage() {
+            const button = document.getElementById("nextBtn");
+            button.classList.add("clicked");
+            setTimeout(() => {
+                window.location.href = "your-goal.html"; // Redirect to the next step
+            }, 500);
+        }
+    </script>
+</body>
+</html>

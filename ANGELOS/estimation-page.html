@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Estimation</title>
+    <link rel="stylesheet" href="estimation-page.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="ai.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>In your case, you'll most likely reach <br> 
+            <span class="goal-weight">83.0 kg</span> by <span class="goal-date">Jun 14!</span>
+        </h2>
+
+        <div class="chart-container">
+            <canvas id="progressChart"></canvas>
+        </div>
+
+        <div class="goal-info">
+            <h3>A Great Start!</h3>
+            <p>Everything is going as expected! We'll give you a more precise date after a few more questions.</p>
+        </div>
+
+        <!-- Removed 'disabled' from button -->
+        <button id="nextBtn" class="next-btn" onclick="goToNextPage()">Next</button>
+    </div>
+
+    <script>
+        // Chart.js setup for progress graph
+        const ctx = document.getElementById('progressChart').getContext('2d');
+        const progressChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Today', 'Midpoint', 'Goal Date'],
+                datasets: [{
+                    label: 'Weight Progress',
+                    data: [77, 79.2, 83], // Example weight data
+                    borderColor: ['red', 'purple', 'blue'],
+                    backgroundColor: 'transparent',
+                    borderWidth: 3,
+                    pointRadius: 5,
+                    pointBackgroundColor: ['red', 'purple', 'blue']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { grid: { display: false }, ticks: { display: false } }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+
+        function goToNextPage() {
+            window.location.href = "landing.html"; // Redirects to landing.html
+        }
+    </script>
+
+
+</body>
+</html>

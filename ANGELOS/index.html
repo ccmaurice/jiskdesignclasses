@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Planner</title>
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+    <!-- Video Background -->
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="workout-pub.mp4" type="video/mp4">
+    </video>
+    
+
+    <!-- Content Container -->
+    <div class="container">
+        <h1>Welcome to Fitness Planner!</h1>
+        <h6>Your #1 App to Help you achieve your fitness goals</h6>
+        <button class="start-btn" onclick="startApp()">Start</button>
+    </div>
+    
+    <script>
+        function startApp() {
+            const button = document.querySelector('.start-btn');
+            button.classList.add('clicked');
+            setTimeout(() => {
+                window.location.href = "gender.html"; // Redirect to gender selection page
+            }, 500);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Goal</title>
+    <link rel="stylesheet" href="your-goal.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Goal is to...</h1>
+
+        <!-- Goal Options -->
+        <div class="options">
+            <button class="goal-btn" onclick="selectGoal('build-muscle')">Build Muscle</button>
+            <button class="goal-btn" onclick="selectGoal('lose-weight')">Lose Weight</button>
+            <button class="goal-btn" onclick="selectGoal('keep-fit')">Keep Fit</button>
+        </div>
+
+        <!-- Display Selected Image -->
+        <div class="image-container">
+            <img id="goal-image" src="images/default-goal.png" alt="Select a goal">
+        </div>
+
+        <!-- Next Button -->
+        <button class="next-btn" id="nextBtn" onclick="goToNextPage()" disabled>Next</button>
+    </div>
+
+    <form style="display:none;">
+        <input type="hidden" id="goalInput" name="goal">
+    </form>
+
+    <script>
+        function selectGoal(goal) {
+            document.getElementById("goalInput").value = goal; // Store goal in hidden form
+
+            // Change the image based on the selection
+            document.getElementById("goal-image").src = `images/${goal}.png`; 
+
+            // Highlight the selected button
+            document.querySelectorAll(".goal-btn").forEach(btn => btn.classList.remove("selected"));
+            document.querySelector(`[onclick="selectGoal('${goal}')"]`).classList.add("selected");
+
+            // Enable the "Next" button
+            document.getElementById("nextBtn").disabled = false;
+        }
+
+        function goToNextPage() {
+            const button = document.getElementById("nextBtn");
+            button.classList.add("clicked");
+
+            setTimeout(() => {
+                window.location.href = "about-you.html"; // Redirect to next page
+            }, 500);
+        }
+    </script>
+</body>
+</html>

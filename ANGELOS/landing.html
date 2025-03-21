@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Workout</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Fitness Planner</h1>
+    <header>
+        <nav>
+            <ul>
+            <div class="nav-bar">
+                <li><a href="landing.html"> Classic Workouts</li></a>
+                <li><a href="discover.html">Discover</li></a>
+            </div>
+        </ul>
+        </nav>
+    </header>
+    <div class="container">
+        
+        
+        <h2>Classic Workouts</h2>
+
+        <!-- Carousel for Muscle Groups -->
+        <div class="carousel">
+            <button class="carousel-btn prev" onclick="scrollLeft()">&#10094;</button>
+            <div class="carousel-track">
+                <div class="carousel-item" onclick="showWorkouts('abs')">Abs</div>
+                <div class="carousel-item" onclick="showWorkouts('chest')">Chest</div>
+                <div class="carousel-item" onclick="showWorkouts('arms')">Arm</div>
+                <div class="carousel-item" onclick="showWorkouts('shoulder-back')">Shoulder & Back</div>
+                <div class="carousel-item" onclick="showWorkouts('legs')">Leg</div>
+            </div>
+            <button class="carousel-btn next" onclick="scrollRight()">&#10095;</button>
+        </div>
+
+        <!-- Superset Workouts (Dynamic Content) -->
+        <div id="workout-list">
+            <!-- Workout options appear here dynamically -->
+        </div>
+
+    </div>
+
+    <form id="userResponses" style="display: none;">
+        <input type="hidden" name="gender" id="genderInput">
+        <input type="hidden" name="dobYear" id="dobYearInput">
+        <input type="hidden" name="height" id="heightInput">
+        <input type="hidden" name="weight" id="weightInput">
+        <input type="hidden" name="bodyPart" id="bodyPartInput">
+        <input type="hidden" name="goal" id="goalInput">
+        <input type="hidden" name="difficulty" id="difficultyInput">
+    </form>
+    <script src="index.js"></script>
+</body>
+</html>
