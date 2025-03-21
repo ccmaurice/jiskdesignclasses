@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Websites</title>
+    <style>
+        /* Basic CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: crimson;
+
+        }
+    </style>
+</head>
+<body>
+    <center><img src="jisk.jpg" width="300" height="250">
+    <h1>JEWELS INTERNATIONAL SCHOOL OF KINSHASA</h1>
+    <h1>DIGITAL DESIGN AND TECHNOLOGY</h1>
+    <h2>2024/2025 Exemplar Student Works</h2>
+    <h2>MYP YEAR 4 (GRADE 9) - Shortlisted Students Chips Bag Design</h2>
+    <ul id="student-list">
+        <!-- Links to student home pages will be inserted here by the script -->
+    </ul></center>
+
+    <script>
+        // JavaScript to dynamically generate student links
+        const studentFolders = [
+            'FARAH',
+            'ANA',
+            'ALICIA',
+            'AMIR',
+            'BATOUL',
+            'DAVID',
+            'PATEL',
+            'RHEMA',
+            'SHAMIYA',
+            'SHANAYA',
+            'SHEBA',
+            'LINA',
+            'NAEL',
+            'PREET'
+        ];
+
+        const studentList = document.getElementById('student-list');
+
+        studentFolders.forEach(folder => {
+            const studentName = folder.replace(/_/g, ' ');
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = `${folder}/index.html`;
+            link.target = '_blank';
+            link.textContent = studentName;
+            listItem.appendChild(link);
+            studentList.appendChild(listItem);
+        });
+    </script>
+    <center><h2><a href="index.html"> GO BACK TO INDEX PAGE</a></h2></center>
+</body>
+</html>
